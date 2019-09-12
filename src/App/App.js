@@ -16,7 +16,6 @@ class App extends Component {
         folders: []
     };
 
-
     //this.setState(this.state.notes.filter((noteId) =>
     //noteId !== jsonfunction 
     //))
@@ -28,9 +27,9 @@ class App extends Component {
         headers: {
             'content-type': 'application/json'
           }})
-        .then(response => response.json())
-        .then(jsonfunction => console.log(jsonfunction))
+        .then(this.setState({notes: this.state.notes.filter(note => note.id !== noteId)}))
       )}
+
     componentDidMount() {
 
        Promise.all([
